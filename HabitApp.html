@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Habit Tracker</title>
+    <link rel="icon" href="HabitTrackerIcon.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="test.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Habit Tracker</h1>
+            <div id="current-date"></div>
+        </header>
+        
+        <div class="nav-tabs">
+            <button class="tab-btn active" onclick="switchTab('today', this)">TODAY</button>
+            <button class="tab-btn" onclick="switchTab('calendar', this)">CALENDAR</button>
+            <button class="tab-btn" onclick="switchTab('habits', this)">HABITS</button>
+            <button class="tab-btn" onclick="switchTab('statistics', this)">STATISTICS</button>
+        </div>
+        
+        <div id="today" class="tab-content active">
+            <div class="date-nav">
+                <button onclick="habitTracker.changeDay(-1)">PREVIOUS DAY</button>
+                <div id="today-current-date" class="current-date"></div>
+                <button onclick="habitTracker.changeDay(1)">NEXT DAY</button>
+            </div>
+            <div id="today-habits"></div>
+        </div>
+        
+        <div id="calendar" class="tab-content">
+            <div class="date-nav">
+                <button onclick="habitTracker.changeMonth(-1)">PREVIOUS MONTH</button>
+                <span id="calendar-month" class="current-date"></span>
+                <button onclick="habitTracker.changeMonth(1)">NEXT MONTH</button>
+            </div>
+            <div class="calendar">
+                <div class="calendar-header">SUN</div>
+                <div class="calendar-header">MON</div>
+                <div class="calendar-header">TUE</div>
+                <div class="calendar-header">WED</div>
+                <div class="calendar-header">THU</div>
+                <div class="calendar-header">FRI</div>
+                <div class="calendar-header">SAT</div>
+            </div>
+        </div>
+        
+        <div id="habits" class="tab-content">
+            <button class="add-habit-btn" onclick="openAddHabitModal()">ADD NEW HABIT</button>
+            <div id="habits-list"></div>
+        </div>
+        
+        <div id="statistics" class="tab-content">
+            <div class="statistics-container">
+                <div class="statistics-header">
+                    <h2>YOUR PROGRESS STATISTICS</h2>
+                    <div class="stats-date-range">
+                        <button id="stats-prev-week" onclick="habitTracker.changeStatsWeek(-1)">← PREVIOUS WEEK</button>
+                        <span id="stats-week-range"></span>
+                        <button id="stats-next-week" onclick="habitTracker.changeStatsWeek(1)">NEXT WEEK →</button>
+                    </div>
+                </div>
+                
+                <div class="stats-top-section">
+                    <div class="stats-overview">
+                        <div class="stat-card streak-card">
+                            <div class="stat-icon">🔥</div>
+                            <div class="stat-content">
+                                <div class="stat-value" id="current-streak">0</div>
+                                <div class="stat-label">DAY STREAK</div>
+                                <div class="stat-description">MATCH OR BEAT YESTERDAY'S TOTAL PROGRESS</div>
+                            </div>
+                        </div>
+                        
+                        <div class="stat-card completion-card">
+                            <div class="stat-icon">📈</div>
+                            <div class="stat-content">
+                                <div class="stat-value" id="week-completion">0%</div>
+                                <div class="stat-label">THIS WEEK</div>
+                                <div class="stat-description">AVERAGE COMPLETION RATE</div>
+                            </div>
+                        </div>
+                        
+                        <div class="stat-card best-day-card">
+                            <div class="stat-icon">⭐</div>
+                            <div class="stat-content">
+                                <div class="stat-value" id="best-day">-</div>
+                                <div class="stat-label">BEST DAY</div>
+                                <div class="stat-description">HIGHEST COMPLETION THIS WEEK</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="chart-container">
+                        <h3>WEEKLY PROGRESS CHART</h3>
+                        <div class="chart-wrapper">
+                            <canvas id="progress-chart" width="800" height="400"></canvas>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="habit-breakdown">
+                    <h3>HABIT BREAKDOWN</h3>
+                    <div id="habit-stats-list"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div id="habit-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="modal-title">NEW HABIT</h3>
+            </div>
+            <div class="form-section">
+                <div class="form-group">
+                    <label for="habit-name"><i class="fa-solid fa-pencil"></i> HABIT NAME</label>
+                    <input type="text" id="habit-name" placeholder="e.g., Drink 8 glasses of water">
+                </div>
+                <div class="form-group">
+                    <label for="habit-type">HABIT TYPE</label>
+                    <select id="habit-type" onchange="habitTracker.toggleHabitOptions()">
+                        <option value="checkbox">CHECKBOX (DONE/NOT DONE)</option>
+                        <option value="slider">SLIDER (MEASURABLE GOAL)</option>
+                        <option value="timer">TIMER (DURATION)</option>
+                    </select>
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label for="habit-color">HABIT COLOR</label>
+                <div id="habit-color-picker" class="color-picker">
+                    <div class="color-box" data-color="">DEFAULT</div>
+                    <div class="color-box" data-color="#4facfe" style="background-color:#4facfe;"></div>
+                    <div class="color-box" data-color="#00f2fe" style="background-color:#00f2fe;"></div>
+                    <div class="color-box" data-color="#667eea" style="background-color:#667eea;"></div>
+                    <div class="color-box" data-color="#764ba2" style="background-color:#764ba2;"></div>
+                    <div class="color-box" data-color="#4caf50" style="background-color:#4caf50;"></div>
+                    <div class="color-box" data-color="#f44336" style="background-color:#f44336;"></div>
+                    <div class="color-box" data-color="#ff9800" style="background-color:#ff9800;"></div>
+                    <div class="color-box" data-color="#e91e63" style="background-color:#e91e63;"></div>
+                    <div class="color-box" data-color="#9c27b0" style="background-color:#9c27b0;"></div>
+                    <div class="color-box" data-color="#3f51b5" style="background-color:#3f51b5;"></div>
+                    <div class="color-box" data-color="#00bcd4" style="background-color:#00bcd4;"></div>
+                    <div class="color-box" data-color="#8bc34a" style="background-color:#8bc34a;"></div>
+                    <div class="color-box" data-color="#ffc107" style="background-color:#ffc107;"></div>
+                    <div class="color-box" data-color="#ff5722" style="background-color:#ff5722;"></div>
+                    <div class="color-box" data-color="#607d8b" style="background-color:#607d8b;"></div>
+                    <div class="color-box" data-color="#795548" style="background-color:#795548;"></div>
+                    <div class="color-box" data-color="#000000" style="background-color:#000000;"></div>
+                </div>
+                <input type="hidden" id="habit-color" value="">
+            </div>
+            
+            <div class="form-group" id="slider-options" style="display: none;">
+                <label for="slider-max">MAXIMUM VALUE</label>
+                <input type="number" id="slider-max" value="100" min="1">
+            </div>
+            
+            <div class="form-group" id="timer-goal-options" style="display: none;">
+                <label for="timer-goal">GOAL TIME (MINUTES)</label>
+                <input type="number" id="timer-goal" value="30" min="1">
+                
+                <label for="timer-checkpoint" style="margin-top: 15px;"><i class="fa-solid fa-flag-checkered"></i> CHECKPOINT INTERVAL (MINUTES)</label>
+                <input type="number" id="timer-checkpoint" value="" min="1" placeholder="OPTIONAL - AUTO-STOP INTERVAL">
+                <small class="checkpoint-help-text">TIMER WILL AUTOMATICALLY PAUSE AT THESE INTERVALS (E.G., EVERY 5 MINUTES)</small>
+            </div>
+            
+            <div class="form-group">
+                <label for="habit-weight"><i class="fa-solid fa-balance-scale"></i> HABIT WEIGHT</label>
+                <input type="number" id="habit-weight" value="1" min="0.1" max="10" step="0.1" placeholder="1.0">
+                <small class="weight-help-text">HIGHER WEIGHT INCREASES THIS HABIT'S CONTRIBUTION TO DAILY PROGRESS (DEFAULT: 1.0)</small>
+            </div>
+            
+            <div class="form-group" id="checkbox-options" style="display: none;">
+                <label>ADD SUB-TASKS:</label>
+                <div class="task-input-container">
+                    <input type="text" id="task-input" placeholder="ENTER A TASK...">
+                    <button id="add-task-btn" onclick="habitTracker.addTask()">ADD</button>
+                </div>
+                <ul id="task-list"></ul>
+            </div>
+            
+            <div class="form-group">
+                <label for="habit-days">REPEAT ON</label>
+                <div id="days-selector">
+                    <label><input type="checkbox" value="0" onchange="this.parentElement.classList.toggle('checked', this.checked)"><span>SUN</span></label>
+                    <label><input type="checkbox" value="1" onchange="this.parentElement.classList.toggle('checked', this.checked)"><span>MON</span></label>
+                    <label><input type="checkbox" value="2" onchange="this.parentElement.classList.toggle('checked', this.checked)"><span>TUE</span></label>
+                    <label><input type="checkbox" value="3" onchange="this.parentElement.classList.toggle('checked', this.checked)"><span>WED</span></label>
+                    <label><input type="checkbox" value="4" onchange="this.parentElement.classList.toggle('checked', this.checked)"><span>THU</span></label>
+                    <label><input type="checkbox" value="5" onchange="this.parentElement.classList.toggle('checked', this.checked)"><span>FRI</span></label>
+                    <label><input type="checkbox" value="6" onchange="this.parentElement.classList.toggle('checked', this.checked)"><span>SAT</span></label>
+                </div>
+            </div>
+            
+            <div class="modal-buttons">
+                <button class="modal-btn cancel-btn" onclick="closeHabitModal()">CANCEL</button>
+                <button class="modal-btn save-btn" onclick="habitTracker.saveHabit()">SAVE</button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Custom Confirmation Modal -->
+    <div id="confirmation-modal" class="modal">
+        <div class="confirmation-modal-content">
+            <div class="confirmation-header">
+                <h3 id="confirmation-title">CONFIRM ACTION</h3>
+            </div>
+            <div class="confirmation-body">
+                <p id="confirmation-message">ARE YOU SURE YOU WANT TO PROCEED?</p>
+            </div>
+            <div class="confirmation-buttons">
+                <button class="confirmation-btn cancel-btn" id="confirmation-cancel">CANCEL</button>
+                <button class="confirmation-btn delete-btn" id="confirmation-confirm">DELETE</button>
+            </div>
+        </div>
+    </div>
+    
+    <script src="test.js"></script>
+</body>
+</html>
