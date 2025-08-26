@@ -52,306 +52,101 @@ h1 {
     color: #94a3b8; /* Slate 400 */
 }
 
-/* Navigation tabs */
-.nav-tabs {
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-    margin-bottom: 30px;
-}
-
-.tab-btn {
-    padding: 10px 20px;
-    background: #1e293b; /* Slate 800 */
-    border: 1px solid #334155; /* Slate 700 */
-    border-radius: 8px;
-    color: #e2e8f0;
-    cursor: pointer;
-    transition: all 0.2s ease;
-    font-size: 0.9rem;
-    font-weight: 600;
-}
-
-.tab-btn:hover {
-    background: #334155; /* Slate 700 */
-    transform: translateY(-2px);
-}
-
-.tab-btn.active {
-    background: linear-gradient(45deg, #818cf8, #c084fc);
-    border-color: transparent;
-    color: #ffffff;
-    box-shadow: 0 4px 15px rgba(129, 140, 248, 0.3);
-}
-
-.tab-content {
-    display: none;
-}
-
-.tab-content.active {
-    display: block;
-}
-
-/* Add habit button */
-.add-habit-btn {
-    display: block;
-    margin: 0 auto 30px;
-    padding: 12px 30px;
-    background: linear-gradient(45deg, #4f46e5, #7c3aed); /* Indigo to Violet */
+.theme-btn {
+    background: none;
     border: none;
-    border-radius: 8px;
-    color: white;
-    font-size: 1rem;
-    font-weight: 600;
-    cursor: pointer;
-    transition: all 0.2s ease;
-    box-shadow: 0 4px 15px rgba(79, 70, 229, 0.3);
-}
-
-.add-habit-btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(79, 70, 229, 0.4);
-}
-
-/* Habit cards */
-.habit-card {
-    background: #1e293b; /* Slate 800 */
-    border-radius: 12px;
-    padding: 20px;
-    margin-bottom: 15px;
-    border: 1px solid #334155; /* Slate 700 */
-    transition: all 0.2s ease;
-    position: relative;
-    overflow: hidden;
-    --habit-color: #818cf8; /* Default to Indigo */
-    border-left: 5px solid var(--habit-color);
-}
-
-.habit-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
-}
-
-.habit-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 15px;
-}
-
-.habit-name {
-    font-size: 1.25rem;
-    font-weight: 600;
-}
-
-.habit-controls {
-    display: flex;
-    gap: 10px;
-}
-
-.control-btn {
-    padding: 5px 12px;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-    font-size: 0.8rem;
-    font-weight: 500;
-    transition: all 0.2s ease;
-}
-
-.edit-btn {
-    background: #334155; /* Slate 700 */
     color: #e2e8f0;
-}
-
-.delete-btn {
-    background: #ef4444; /* Red 500 */
-    color: #ffffff;
-}
-
-.control-btn:hover {
-    filter: brightness(1.2);
-}
-
-.habit-progress {
-    margin-top: 15px;
-}
-
-/* Checkbox habit */
-.checkbox-habit input[type="checkbox"] {
-    width: 20px;
-    height: 20px;
-    margin-right: 10px;
-    accent-color: #818cf8;
-}
-
-/* Slider habit */
-.slider-habit-container {
-    height: 30px;
-    background-color: #334155; /* Slate 700 */
-}
-
-.slider-progress-fill {
-    background: linear-gradient(90deg, #818cf8, #a78bfa); /* Indigo to Violet */
-}
-
-.slider-display {
-    font-size: 1rem;
-    font-weight: 500;
-    color: #ffffff;
-}
-
-/* Timer habit */
-.timer-habit-container {
-    height: 40px;
-    background-color: #334155; /* Slate 700 */
-}
-
-.timer-progress-fill {
-    background: linear-gradient(90deg, rgba(129, 140, 248, 0.3), rgba(167, 139, 250, 0.3));
-}
-
-.timer-display {
     font-size: 1.5rem;
-    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.theme-btn:hover {
+    transform: scale(1.1);
+}
+
+/* Light theme */
+body.light-theme {
+    background: #f1f5f9; /* Slate 100 */
+    color: #0f172a; /* Slate 900 */
+}
+
+.light-theme h1 {
+    background: linear-gradient(45deg, #4f46e5, #7c3aed);
+    -webkit-background-clip: text;
+    background-clip: text;
+}
+
+.light-theme #current-date {
+    color: #475569; /* Slate 600 */
+}
+
+.light-theme .tab-btn {
+    background: #e2e8f0; /* Slate 200 */
+    border-color: #cbd5e1; /* Slate 300 */
+    color: #0f172a;
+}
+
+.light-theme .tab-btn.active {
+    background: linear-gradient(45deg, #4f46e5, #7c3aed);
     color: #ffffff;
 }
 
-.timer-btn {
-    padding: 8px 15px;
-    border-radius: 6px;
-}
-
-.start-btn {
-    background: #22c55e; /* Green 500 */
-}
-
-.stop-btn {
-    background: #ef4444; /* Red 500 */
-}
-
-.reset-btn {
-    background: #64748b; /* Slate 500 */
-}
-
-/* Calendar */
-.calendar {
-    display: grid;
-    grid-template-columns: repeat(7, 1fr);
-    gap: 5px;
-    margin-top: 20px;
-}
-
-.calendar-header {
-    text-align: center;
-    font-weight: 600;
-    font-size: 0.8rem;
-    padding: 5px;
-    color: #94a3b8; /* Slate 400 */
-}
-
-.calendar-day {
-    aspect-ratio: 1;
-    background: #1e293b; /* Slate 800 */
-    border-radius: 8px;
-    border: 1px solid #334155; /* Slate 700 */
-}
-
-.calendar-day:hover {
-    background: #334155; /* Slate 700 */
-}
-
-.calendar-day.today {
-    background: #818cf8; /* Indigo 400 */
-    color: #ffffff;
-}
-
-.calendar-day.selected {
-    border-color: #c084fc; /* Purple 400 */
-    box-shadow: 0 0 10px rgba(192, 132, 252, 0.5);
-}
-
-.day-number {
-    font-size: 1.5rem;
-    font-weight: 600;
-}
-
-.progress-bar {
-    background: linear-gradient(45deg, #818cf8, #c084fc);
-}
-
-.progress-percent {
-    color: #94a3b8; /* Slate 400 */
-}
-
-/* Modal */
-.modal-content {
-    background: #1e293b; /* Slate 800 */
-    border: 1px solid #334155; /* Slate 700 */
-    border-radius: 12px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-}
-
-.modal-header h3 {
-    color: #e2e8f0;
-}
-
-.form-group input,
-.form-group select {
-    background: #334155; /* Slate 700 */
-    border: 1px solid #475569; /* Slate 600 */
-    color: #e2e8f0;
-}
-
-.form-group input:focus,
-.form-group select:focus {
-    border-color: #818cf8; /* Indigo 400 */
-    box-shadow: 0 0 8px rgba(129, 140, 248, 0.5);
-}
-
-.modal-btn.save-btn {
+.light-theme .add-habit-btn {
     background: linear-gradient(45deg, #4f46e5, #7c3aed);
 }
 
-/* Statistics */
-.stat-card {
-    background: #1e293b; /* Slate 800 */
-    border: 1px solid #334155; /* Slate 700 */
-    border-radius: 12px;
+.light-theme .habit-card {
+    background: #ffffff;
+    border-color: #e2e8f0; /* Slate 200 */
 }
 
-.stat-icon {
-    font-size: 2rem;
+.light-theme .control-btn {
+    background: #e2e8f0; /* Slate 200 */
+    color: #0f172a;
 }
 
-.stat-value {
-    font-size: 2.25rem;
-    font-weight: 700;
+.light-theme .slider-habit-container, .light-theme .timer-habit-container {
+    background-color: #e2e8f0; /* Slate 200 */
 }
 
-.stat-label {
-    font-size: 0.9rem;
-    font-weight: 500;
-    color: #94a3b8; /* Slate 400 */
+.light-theme .calendar-day {
+    background: #ffffff;
+    border-color: #e2e8f0;
 }
 
-.chart-container {
-    background: #1e293b; /* Slate 800 */
-    border: 1px solid #334155; /* Slate 700 */
-    border-radius: 12px;
+.light-theme .calendar-day.today {
+    background: #818cf8; /* Indigo 400 */
 }
 
-.habit-breakdown {
-    background: #1e293b; /* Slate 800 */
-    border: 1px solid #334155; /* Slate 700 */
-    border-radius: 12px;
+.light-theme .modal-content {
+    background: #ffffff;
+    border-color: #e2e8f0;
 }
 
-.habit-stat-item {
-    background: #334155; /* Slate 700 */
-    border-radius: 8px;
+.light-theme .modal-header h3 {
+    color: #0f172a;
 }
 
-.habit-stat-bar {
-    background: #475569; /* Slate 600 */
+.light-theme .form-group input, .light-theme .form-group select {
+    background: #f8fafc; /* Slate 50 */
+    border-color: #e2e8f0;
+    color: #0f172a;
+}
+
+.light-theme .stat-card, .light-theme .chart-container, .light-theme .habit-breakdown {
+    background: #ffffff;
+    border-color: #e2e8f0;
+}
+
+.light-theme .stat-label {
+    color: #475569; /* Slate 600 */
+}
+
+.light-theme .habit-stat-item {
+    background: #f8fafc; /* Slate 50 */
+}
+
+.light-theme .habit-stat-bar {
+    background: #e2e8f0; /* Slate 200 */
 }
