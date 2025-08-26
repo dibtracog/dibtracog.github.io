@@ -3,90 +3,85 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Inter', sans-serif;
 }
 
-/* Ensure html element also has the background to prevent white overflow */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
 html {
-    background: linear-gradient(135deg, #0a0b14, #0f1624, #121d35); /* Match body gradient */
-    background-attachment: fixed; /* Keep background fixed during scroll */
+    background: #0f172a; /* Dark blue-gray */
+    background-attachment: fixed;
     min-height: 100%;
 }
 
 body {
-    background: linear-gradient(135deg, #0a0b14, #0f1624, #121d35); /* Darker gradient */
-    background-attachment: fixed; /* Keep background fixed during scroll */
-    color: #ffffff;
+    background: #0f172a; /* Dark blue-gray */
+    color: #e2e8f0; /* Light gray */
     min-height: 100vh;
-    padding: 25px; /* Increased from 15px for better breathing room */
-    font-size: 0.9rem; /* Reduced font size */
-    font-weight: 500; /* Increased font weight for bolder text */
-    line-height: 1.4; /* Reduced line spacing */
-    transform: scale(0.96);
-    transform-origin: top left;
-    width: 104.17%; /* Compensate for scaling: 100% / 0.96 */
-    height: 104.17vh; /* Compensate for scaling: 100vh / 0.96 */
-    overflow: auto;
+    padding: 20px;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
 }
 
 .container {
-    max-width: 900px; /* Reduced from 1200px for more vertical feel */
+    max-width: 800px;
     margin: 0 auto;
-    padding: 25px; /* Increased from 15px for better spacing */
+    padding: 20px;
 }
 
 /* Header styles */
 header {
     text-align: center;
-    margin-bottom: 30px; /* Increased from 20px for better separation */
-    padding: 15px 0; /* Increased from 10px for more breathing room */
+    margin-bottom: 40px;
 }
 
 h1 {
-    font-size: 2.5rem; /* Increased for better prominence */
-    background: linear-gradient(45deg, #4facfe, #00f2fe);
+    font-size: 3rem;
+    font-weight: 800;
+    letter-spacing: -1.5px;
+    background: linear-gradient(45deg, #818cf8, #c084fc); /* Indigo to Purple */
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
-    margin-bottom: 8px; /* Reduced for tighter spacing */
-    padding: 0 5px;
-    font-weight: 800; /* Increased from 700 for thicker text */
-    letter-spacing: -0.5px; /* Tighter letter spacing for crisp look */
+    margin-bottom: 10px;
+}
+
+#current-date {
+    font-size: 1rem;
+    color: #94a3b8; /* Slate 400 */
 }
 
 /* Navigation tabs */
 .nav-tabs {
     display: flex;
     justify-content: center;
-    gap: 12px; /* Increased from 8px for better visual separation */
-    margin-bottom: 30px; /* Increased from 20px for better section separation */
-    flex-wrap: wrap; /* Allow wrapping on small screens */
-    padding: 0 10px; /* Increased from 5px for better spacing */
+    gap: 10px;
+    margin-bottom: 30px;
 }
 
 .tab-btn {
-    padding: 10px 16px; /* Reduced horizontal padding */
-    background: rgba(79, 172, 254, 0.1);
-    border: 2px solid rgba(79, 172, 254, 0.3);
-    border-radius: 15px; /* Reduced roundness for crispness */
-    color: #ffffff;
+    padding: 10px 20px;
+    background: #1e293b; /* Slate 800 */
+    border: 1px solid #334155; /* Slate 700 */
+    border-radius: 8px;
+    color: #e2e8f0;
     cursor: pointer;
-    transition: all 0.15s ease;
-    font-size: 0.85rem;
-    font-weight: 700; /* Increased from 600 for bolder text */
-    margin: 1px; /* Reduced margin */
-    letter-spacing: 0.3px; /* Reduced letter spacing */
+    transition: all 0.2s ease;
+    font-size: 0.9rem;
+    font-weight: 600;
 }
 
 .tab-btn:hover {
-    background: rgba(79, 172, 254, 0.2);
+    background: #334155; /* Slate 700 */
     transform: translateY(-2px);
 }
 
 .tab-btn.active {
-    background: linear-gradient(45deg, #4facfe, #00f2fe);
+    background: linear-gradient(45deg, #818cf8, #c084fc);
     border-color: transparent;
-    box-shadow: 0 5px 15px rgba(79, 172, 254, 0.4);
+    color: #ffffff;
+    box-shadow: 0 4px 15px rgba(129, 140, 248, 0.3);
 }
 
 .tab-content {
@@ -100,118 +95,86 @@ h1 {
 /* Add habit button */
 .add-habit-btn {
     display: block;
-    margin: 0 auto 25px; /* Increased bottom margin from 18px for better separation */
-    padding: 12px 28px; /* Optimized padding */
-    background: linear-gradient(45deg, #667eea, #764ba2);
+    margin: 0 auto 30px;
+    padding: 12px 30px;
+    background: linear-gradient(45deg, #4f46e5, #7c3aed); /* Indigo to Violet */
     border: none;
-    border-radius: 18px; /* Reduced roundness for modern look */
+    border-radius: 8px;
     color: white;
-    font-size: 0.95rem; /* Slightly reduced */
-    font-weight: 700; /* Increased from 600 for bolder text */
+    font-size: 1rem;
+    font-weight: 600;
     cursor: pointer;
-    transition: all 0.15s ease;
-    letter-spacing: 0.5px; /* Added for crisp text */
-    box-shadow: 0 3px 12px rgba(102, 126, 234, 0.3); /* Added shadow for depth */
+    transition: all 0.2s ease;
+    box-shadow: 0 4px 15px rgba(79, 70, 229, 0.3);
 }
 
 .add-habit-btn:hover {
     transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+    box-shadow: 0 6px 20px rgba(79, 70, 229, 0.4);
 }
 
 /* Habit cards */
 .habit-card {
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: 12px; /* Reduced for modern crisp look */
-    padding: 25px; /* Increased from 20px for better breathing room */
-    margin-bottom: 18px; /* Increased from 12px for better separation */
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    transition: all 0.15s ease;
+    background: #1e293b; /* Slate 800 */
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 15px;
+    border: 1px solid #334155; /* Slate 700 */
+    transition: all 0.2s ease;
     position: relative;
     overflow: hidden;
-    --habit-color: rgba(255, 255, 255, 0.2);
-    border-left: 4px solid var(--habit-color); /* Reduced border thickness */
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Added subtle shadow for depth */
-}
-
-.habit-card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    width: 6px;
-    background: var(--habit-color);
-    border-radius: 15px 0 0 15px;
-    z-index: 0;
-}
-
-.habit-card > * {
-    position: relative;
-    z-index: 1;
+    --habit-color: #818cf8; /* Default to Indigo */
+    border-left: 5px solid var(--habit-color);
 }
 
 .habit-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
 }
 
 .habit-header {
     display: flex;
     justify-content: space-between;
-    align-items: flex-start; /* Changed to flex-start for better vertical alignment */
-    margin-bottom: 18px; /* Increased from 12px for better separation */
-    gap: 12px; /* Increased from 8px for better spacing */
-    flex-wrap: wrap; /* Allow wrapping for better vertical stacking */
+    align-items: center;
+    margin-bottom: 15px;
 }
 
 .habit-name {
-    font-size: 1.15rem; /* Slightly increased for better hierarchy */
-    font-weight: 700; /* Increased from 600 for bolder text */
-    flex-grow: 1;
-    margin-right: 8px;
-    line-height: 1.3;
-    letter-spacing: 0.2px; /* Added letter spacing for clarity */
+    font-size: 1.25rem;
+    font-weight: 600;
 }
 
 .habit-controls {
     display: flex;
-    gap: 8px; /* Increased from 6px for better button separation */
-    flex-shrink: 0; /* Prevent shrinking */
-    flex-wrap: wrap; /* Allow wrapping for vertical stacking */
+    gap: 10px;
 }
 
 .control-btn {
-    padding: 6px 14px; /* Optimized padding */
+    padding: 5px 12px;
     border: none;
-    border-radius: 12px; /* Reduced roundness for modern look */
+    border-radius: 6px;
     cursor: pointer;
-    font-size: 0.8rem; /* Slightly smaller for space efficiency */
-    font-weight: 600; /* Increased from 500 for bolder text */
-    transition: all 0.15s ease;
-    white-space: nowrap;
-    margin: 0 1px;
-    letter-spacing: 0.3px; /* Added for crisp text */
+    font-size: 0.8rem;
+    font-weight: 500;
+    transition: all 0.2s ease;
 }
 
 .edit-btn {
-    background: rgba(255, 193, 7, 0.8);
-    color: #000;
+    background: #334155; /* Slate 700 */
+    color: #e2e8f0;
 }
 
 .delete-btn {
-    background: rgba(220, 53, 69, 0.8);
-    color: #fff;
+    background: #ef4444; /* Red 500 */
+    color: #ffffff;
 }
 
 .control-btn:hover {
-    transform: scale(1.05);
-    filter: brightness(1.1);
+    filter: brightness(1.2);
 }
 
 .habit-progress {
-    margin-top: 15px; /* Increased from 10px for better section separation */
+    margin-top: 15px;
 }
 
 /* Checkbox habit */
@@ -219,2156 +182,176 @@ h1 {
     width: 20px;
     height: 20px;
     margin-right: 10px;
-    accent-color: #4facfe;
+    accent-color: #818cf8;
 }
 
 /* Slider habit */
-.slider-habit {
-    display: flex;
-    align-items: center;
-    gap: 8px; /* Reduced from 15px */
-    flex-wrap: wrap; /* Allow wrapping for vertical stacking */
-}
-
-/* Enhanced slider container */
-.enhanced-slider-container {
-    display: flex;
-    align-items: center;
-    gap: 8px; /* Reduced from 15px */
-    width: 100%;
-    flex-wrap: wrap; /* Allow wrapping for better vertical use */
-}
-
-/* Enhanced slider optimization */
-.enhanced-slider {
-    flex: 1;
-    width: 100%;
-    height: 10px; /* Reduced height for cleaner look */
-    border-radius: 5px; /* Reduced roundness */
-    background: rgba(255, 255, 255, 0.2);
-    outline: none;
-    -webkit-appearance: none;
-    appearance: none;
-    position: relative;
-    cursor: pointer;
-}
-
-.enhanced-slider::-webkit-slider-runnable-track {
-    background: transparent;
-    height: 10px; /* Reduced height */
-    border-radius: 5px; /* Reduced roundness */
-}
-
-.enhanced-slider::-webkit-slider-thumb,
-.enhanced-slider::-moz-range-thumb {
-    -webkit-appearance: none;
-    appearance: none;
-    width: 20px; /* Slightly reduced */
-    height: 20px;
-    border-radius: 50%;
-    background: #ffffff;
-    cursor: pointer;
-    border: 2px solid #4facfe; /* Reduced border thickness */
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3); /* Reduced shadow */
-    position: relative;
-    z-index: 2;
-    transition: all 0.1s ease;
-}
-
-.enhanced-slider::-webkit-slider-thumb:hover,
-.enhanced-slider::-moz-range-thumb:hover {
-    transform: scale(1.1);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
-}
-
-.slider-value-box {
-    min-width: 70px; /* Slightly reduced */
-    padding: 6px 10px; /* Reduced padding */
-    background: rgba(255, 255, 255, 0.15);
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    border-radius: 6px; /* Reduced roundness */
-    text-align: center;
-    font-family: 'Courier New', monospace;
-    font-weight: 700; /* Increased from 600 for bolder text */
-    font-size: 0.9rem; /* Slightly reduced */
-    color: #ffffff;
-    backdrop-filter: blur(4px);
-    flex-shrink: 0;
-}
-
-/* New unified slider habit container */
 .slider-habit-container {
-    flex-grow: 1;
-    position: relative;
-    border-radius: 8px;
-    overflow: hidden;
-    height: 40px;
-    background-color: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    user-select: none;
-}
-
-.slider-display {
-    font-family: 'Courier New', monospace;
-    font-size: 1.2rem;
-    font-weight: bold;
-    min-width: 80px;
-    text-align: center;
-    position: relative;
-    z-index: 2;
-    padding: 0 10px;
-    text-shadow: 0 0 2px rgba(0, 0, 0, 0.5);
-    user-select: none;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    pointer-events: none;
-    color: #ffffff;
+    height: 30px;
+    background-color: #334155; /* Slate 700 */
 }
 
 .slider-progress-fill {
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 0%;
-    background: linear-gradient(90deg, rgba(79, 172, 254, 0.8), rgba(0, 242, 254, 0.6));
-    border-radius: 8px;
-    transition: width 0.2s ease;
-    z-index: 1;
+    background: linear-gradient(90deg, #818cf8, #a78bfa); /* Indigo to Violet */
 }
 
-/* Slider progress info in header */
-.slider-progress-info {
-    font-family: 'Courier New', monospace;
-    font-weight: 700;
-    font-size: 0.9rem;
-    color: #4facfe;
-    background: rgba(79, 172, 254, 0.1);
-    padding: 4px 8px;
-    border-radius: 6px;
-    border: 1px solid rgba(79, 172, 254, 0.3);
-    backdrop-filter: blur(4px);
-    min-width: 50px;
-    text-align: center;
-}
-
-/* Habit progress bar */
-.habit-progress-bar {
-    position: relative;
-    width: 100%;
-    height: 24px; /* Increased from 20px for better visibility */
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: 8px; /* Reduced roundness */
-    margin-top: 8px; /* Reduced margin */
-    overflow: hidden;
-    border: 1px solid rgba(255, 255, 255, 0.2);
-}
-
-.progress-fill {
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 100%;
-    background: linear-gradient(90deg, #4facfe, #00f2fe);
-    border-radius: 8px; /* Reduced roundness */
-    transition: width 0.15s ease;
-    width: 0%;
-}
-
-.progress-text {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-size: 0.8rem; /* Slightly reduced */
-    font-weight: 700; /* Increased from 600 for bolder text */
+.slider-display {
+    font-size: 1rem;
+    font-weight: 500;
     color: #ffffff;
-    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
-    z-index: 2;
-    letter-spacing: 0.2px; /* Added for clarity */
 }
 
 /* Timer habit */
-.timer-habit {
-    display: flex;
-    align-items: center;
-    gap: 8px; /* Reduced from 15px */
-    flex-wrap: wrap;
-}
-
 .timer-habit-container {
-    flex-grow: 1;
-    position: relative;
-    border-radius: 8px;
-    overflow: hidden;
     height: 40px;
-    background-color: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    user-select: none;
-}
-
-.timer-display {
-    font-family: 'Courier New', monospace;
-    font-size: 1.5rem;
-    font-weight: bold;
-    min-width: 120px;
-    text-align: center;
-    position: relative;
-    z-index: 2;
-    padding: 0 10px;
-    text-shadow: 0 0 2px rgba(0, 0, 0, 0.5);
-    user-select: none;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    pointer-events: none;
+    background-color: #334155; /* Slate 700 */
 }
 
 .timer-progress-fill {
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 0%;
-    background: linear-gradient(90deg, rgba(79, 172, 254, 0.3), rgba(0, 242, 254, 0.3));
-    transition: width 0.25s linear;
-    z-index: 1;
-    pointer-events: none;
-    user-select: none;
+    background: linear-gradient(90deg, rgba(129, 140, 248, 0.3), rgba(167, 139, 250, 0.3));
+}
+
+.timer-display {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #ffffff;
 }
 
 .timer-btn {
-    padding: 6px 14px; /* Optimized padding */
-    border: none;
-    border-radius: 10px; /* Reduced roundness for crisp look */
-    cursor: pointer;
-    font-size: 0.8rem; /* Smaller for space efficiency */
-    font-weight: 600; /* Increased from 500 for bolder text */
-    transition: all 0.15s ease;
-    margin: 2px;
-    white-space: nowrap;
-    letter-spacing: 0.3px; /* Added for clarity */
+    padding: 8px 15px;
+    border-radius: 6px;
 }
 
 .start-btn {
-    background: rgba(40, 167, 69, 0.8);
-    color: white;
+    background: #22c55e; /* Green 500 */
 }
 
 .stop-btn {
-    background: rgba(220, 53, 69, 0.8);
-    color: white;
+    background: #ef4444; /* Red 500 */
 }
 
 .reset-btn {
-    background: rgba(108, 117, 125, 0.8);
-    color: white;
+    background: #64748b; /* Slate 500 */
 }
 
 /* Calendar */
 .calendar {
     display: grid;
     grid-template-columns: repeat(7, 1fr);
-    column-gap: 10px; /* Reduced from 8px to decrease horizontal spacing between day tiles */
-    row-gap: 6px; /* Increased from 12px for even better vertical separation between rows */
-    margin-top: 22px; /* Increased from 20px for better section separation */
-    max-width: 100%;
-    aspect-ratio: 7/6;
+    gap: 5px;
+    margin-top: 20px;
 }
 
 .calendar-header {
     text-align: center;
-    font-weight: 700;
-    font-size: 0.75rem; /* Further reduced for smaller cards */
-    padding: 5px; /* Reduced padding for smaller appearance */
-    background: rgba(79, 172, 254, 0.3);
-    border-radius: 3px; /* Reduced roundness for smaller scale */
-    letter-spacing: 0.3px;
-    line-height: 1;
+    font-weight: 600;
+    font-size: 0.8rem;
+    padding: 5px;
+    color: #94a3b8; /* Slate 400 */
 }
 
 .calendar-day {
     aspect-ratio: 1;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: 4px;
-    cursor: pointer;
-    transition: all 0.15s ease;
-    padding: 1px;
-    position: relative;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    min-height: 0;
-    box-sizing: border-box;
-    margin: 0; /* Ensure no margins affect spacing */
-    
+    background: #1e293b; /* Slate 800 */
+    border-radius: 8px;
+    border: 1px solid #334155; /* Slate 700 */
 }
 
 .calendar-day:hover {
-    background: rgba(79, 172, 254, 0.2);
-    transform: scale(1.03);
+    background: #334155; /* Slate 700 */
 }
 
 .calendar-day.today {
-    background: #FFD700;
-    color: #000;
-    font-weight: bold;
+    background: #818cf8; /* Indigo 400 */
+    color: #ffffff;
 }
 
 .calendar-day.selected {
-    background: rgba(102, 126, 234, 0.5);
-    border: 2px solid #667eea;
+    border-color: #c084fc; /* Purple 400 */
+    box-shadow: 0 0 10px rgba(192, 132, 252, 0.5);
 }
 
 .day-number {
-    font-size: 1.8rem; /* Further reduced for smaller cards */
-    margin-bottom: 8px; /* Reduced margin for smaller appearance */
-    margin-top: 8px; /* Reduced margin for smaller appearance */
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    font-weight: 900;
-    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
-    line-height: 1;
-}
-
-.progress-indicator {
-    width: 80%; /* Further reduced for smaller cards */
-    height: 8px; /* Increased from 5px for better visibility */
-    background: rgba(255, 255, 255, 0.2);
-    border-radius: 4px; /* Slightly increased with height */
-    overflow: hidden;
-    margin-bottom: 2px; /* Reduced margin for smaller cards */
+    font-size: 1.5rem;
+    font-weight: 600;
 }
 
 .progress-bar {
-    height: 100%;
-    background: linear-gradient(45deg, #4facfe, #00f2fe);
-    transition: width 0.15s ease;
-    border-radius: 4px; /* Increased from 3px to match thicker progress bar */
+    background: linear-gradient(45deg, #818cf8, #c084fc);
 }
 
 .progress-percent {
-    font-size: 0.65rem; /* Further reduced for smaller cards */
-    color: #4facfe;
-    font-weight: 700;
-    line-height: 1;
+    color: #94a3b8; /* Slate 400 */
 }
 
 /* Modal */
-.modal {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: transparent; /* Removed dark background overlay */
-    z-index: 1000;
-    /* Removed backdrop-filter blur */
-    padding: 0; /* Removed padding to allow perfect centering */
-    box-sizing: border-box;
-    pointer-events: none; /* Allow clicks through the modal background */
-}
-
 .modal-content {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background: linear-gradient(145deg, #1f1f3a, #16213e);
-    padding: 24px;
-    border-radius: 16px;
-    border: 2px solid rgba(79, 172, 254, 0.3); /* Enhanced border for floating effect */
-    width: 90%;
-    max-width: 480px;
-    max-height: 80vh;
-    min-height: 200px;
-    overflow-y: auto;
-    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.8), 0 10px 25px rgba(0, 0, 0, 0.5); /* Enhanced shadow for floating effect */
-    animation: modalFloat 0.3s ease;
-    box-sizing: border-box;
-    pointer-events: all; /* Enable interactions with modal content */
-}
-
-/* Custom scrollbar for modal */
-.modal-content::-webkit-scrollbar {
-    width: 8px;
-}
-
-.modal-content::-webkit-scrollbar-track {
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: 4px;
-}
-
-.modal-content::-webkit-scrollbar-thumb {
-    background: rgba(79, 172, 254, 0.6);
-    border-radius: 4px;
-}
-
-.modal-content::-webkit-scrollbar-thumb:hover {
-    background: rgba(79, 172, 254, 0.8);
-}
-
-@keyframes modalFloat {
-    from {
-        opacity: 0;
-        transform: translate(-50%, -60%) scale(0.9);
-        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-    }
-    to {
-        opacity: 1;
-        transform: translate(-50%, -50%) scale(1);
-        box-shadow: 0 25px 60px rgba(0, 0, 0, 0.8), 0 10px 25px rgba(0, 0, 0, 0.5);
-    }
-}
-
-.modal-header {
-    margin-bottom: 15px; /* Reduced margin */
-    padding-bottom: 5px; /* Reduced padding */
+    background: #1e293b; /* Slate 800 */
+    border: 1px solid #334155; /* Slate 700 */
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
 }
 
 .modal-header h3 {
-    color: #4facfe;
-    font-size: 1.3rem; /* Increased for better hierarchy */
-    font-weight: 700; /* Increased from 600 for bolder text */
-    letter-spacing: 0.5px; /* Added for crisp text */
-}
-
-.form-group {
-    margin-bottom: 15px; /* Reduced from 24px */
-    position: relative;
-}
-
-.form-group label {
-    font-size: 0.95rem;
-    font-weight: 700; /* Increased from 600 for bolder text */
-    letter-spacing: 0.5px;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    margin-bottom: 5px; /* Reduced margin */
+    color: #e2e8f0;
 }
 
 .form-group input,
 .form-group select {
-    width: 100%;
-    padding: 12px 14px; /* Optimized padding */
-    border: 1px solid rgba(255, 255, 255, 0.15);
-    border-radius: 8px; /* Reduced roundness for crisp look */
-    background: rgba(255, 255, 255, 0.05);
-    backdrop-filter: blur(4px);
-    color: #ffffff;
-    font-size: 0.95rem; /* Slightly reduced */
-    transition: all 0.15s ease;
-    line-height: 1.3;
-    border: 1.5px solid rgba(255, 255, 255, 0.15); /* Slightly thicker border */
-}
-
-/* Comprehensive dropdown text visibility fixes */
-.form-group select option {
-    background-color: #16213e !important;
-    color: #ffffff !important;
-    padding: 8px 12px;
-}
-
-/* Global select option styling - covers all browsers */
-select option {
-    background-color: #16213e !important;
-    color: #ffffff !important;
-    border: none !important;
-}
-
-/* Chrome/Webkit specific dropdown styling */
-select::-webkit-list-box {
-    background-color: #16213e !important;
-    color: #ffffff !important;
-}
-
-/* Firefox specific option styling */
-select option:checked {
-    background-color: #4facfe !important;
-    color: #ffffff !important;
-}
-
-/* Hover state for options */
-select option:hover {
-    background-color: #4facfe !important;
-    color: #ffffff !important;
-}
-
-/* Ensure all select elements have proper base styling */
-select {
-    background-color: rgba(255, 255, 255, 0.05) !important;
-    color: #ffffff !important;
-}
-
-/* Fix dropdown lists and option roles */
-*[role="listbox"],
-*[role="option"] {
-    background-color: #16213e !important;
-    color: #ffffff !important;
-}
-
-/* Additional cross-browser compatibility */
-select optgroup {
-    background-color: #16213e !important;
-    color: #ffffff !important;
-}
-
-/* Ensure dropdown menus in modals also follow the pattern */
-.modal select,
-.modal select option {
-    background-color: #16213e !important;
-    color: #ffffff !important;
-}
-
-/* Multiple select styling */
-select[multiple] option {
-    background-color: #16213e !important;
-    color: #ffffff !important;
-    padding: 4px 8px !important;
-}
-
-select[multiple] option:checked {
-    background-color: #4facfe !important;
-    color: #ffffff !important;
+    background: #334155; /* Slate 700 */
+    border: 1px solid #475569; /* Slate 600 */
+    color: #e2e8f0;
 }
 
 .form-group input:focus,
 .form-group select:focus {
-    outline: none;
-    border-color: #4facfe;
-    box-shadow: 0 0 8px rgba(79, 172, 254, 0.5);
+    border-color: #818cf8; /* Indigo 400 */
+    box-shadow: 0 0 8px rgba(129, 140, 248, 0.5);
 }
 
-.form-section {
-    padding-top: 12px;
-    margin-top: 12px;
-    border-top: 1px solid rgba(255, 255, 255, 0.08);
+.modal-btn.save-btn {
+    background: linear-gradient(45deg, #4f46e5, #7c3aed);
 }
 
-.modal-buttons {
-    display: flex;
-    gap: 10px; /* Reduced gap */
-    justify-content: flex-end;
-    margin-top: 20px; /* Reduced margin */
-    padding-top: 8px; /* Reduced padding */
-}
-
-.modal-btn {
-    padding: 10px 22px; /* Optimized padding */
-    border: none;
-    border-radius: 10px; /* Reduced roundness */
-    cursor: pointer;
-    font-size: 0.9rem; /* Slightly reduced */
-    font-weight: 700; /* Increased from 600 for bolder text */
-    transition: all 0.15s ease;
-    letter-spacing: 0.3px; /* Added for crisp text */
-}
-
-.save-btn {
-    background: linear-gradient(45deg, #4facfe, #00f2fe);
-    color: white;
-}
-
-.cancel-btn {
-    background: rgba(108, 117, 125, 0.8);
-    color: white;
-}
-
-.modal-btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-}
-
-/* Date navigation */
-.date-nav {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 12px; /* Reduced from 15px */
-    margin: 15px 0; /* Reduced margin */
-    padding: 5px;
-}
-
-.current-date {
-    font-size: 1.2rem;
-    font-weight: 700; /* Increased from bold for consistency */
-    color: #4facfe;
-    min-width: 160px; /* Reduced from 200px */
-    text-align: center;
-    padding: 4px 6px; /* Reduced horizontal padding */
-}
-
-.date-nav button {
-    background: rgba(79, 172, 254, 0.2);
-    border: 1px solid rgba(79, 172, 254, 0.5);
-    color: white;
-    padding: 8px 12px; /* Reduced horizontal padding */
-    border-radius: 12px; /* Reduced roundness */
-    cursor: pointer;
-    transition: all 0.15s ease;
-    font-size: 0.85rem;
-    font-weight: 600; /* Increased from 500 for bolder text */
-    letter-spacing: 0.3px; /* Added for crisp text */
-}
-
-.date-nav button:hover {
-    background: rgba(79, 172, 254, 0.4);
-    transform: translateY(-2px);
-}
-
-/* Days selector */
-#days-selector {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(80px, 1fr)); /* Reduced from 95px */
-    gap: 6px; /* Reduced from 10px */
-}
-
-#days-selector label {
-    background: rgba(255, 255, 255, 0.1);
-    padding: 8px; /* Reduced from 10px */
-    border-radius: 8px;
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    gap: 6px; /* Reduced from 8px */
-    cursor: pointer;
-    transition: all 0.15s ease;
-    border: 1px solid transparent;
-    font-size: 0.8rem; /* Reduced from 0.85rem */
-}
-
-#days-selector label:hover {
-    background: rgba(255, 255, 255, 0.2);
-}
-
-#days-selector input[type="checkbox"] {
-    width: 16px;
-    height: 16px;
-    accent-color: #00f2fe;
-}
-
-#days-selector input[type="checkbox"]:checked+span {
-    font-weight: bold;
-}
-
-#days-selector label.checked {
-    background: rgba(79, 172, 255, 0.3);
-    border-color: #4facfe;
-}
-
-#days-selector span {
-    text-transform: uppercase;
-}
-
-/* Task list */
-#task-list {
-    list-style: none;
-    padding: 0;
-    margin-top: 10px;
-    max-height: 200px;
-    overflow-y: auto;
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    border-radius: 5px;
-    padding: 5px;
-}
-
-#task-list li {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 5px;
-    margin-bottom: 5px;
-    background: rgba(255, 255, 255, 0.05);
-    border-radius: 3px;
-}
-
-#task-list .task-name {
-    flex-grow: 1;
-    word-break: break-word;
-    padding-right: 10px;
-}
-
-#task-list .delete-task-btn {
-    background: rgba(220, 53, 69, 0.6);
-    color: white;
-    border: none;
-    border-radius: 3px;
-    padding: 2px 6px;
-    cursor: pointer;
-    font-size: 0.8rem;
-}
-
-#task-list .delete-task-btn:hover {
-    background: rgba(220, 53, 69, 1);
-}
-
-#add-task-btn {
-    background: rgba(40, 167, 69, 0.6);
-    color: white;
-    border: none;
-    border-radius: 3px;
-    padding: 5px 10px;
-    cursor: pointer;
-    font-size: 0.9rem;
-    margin-top: 5px;
-}
-
-#add-task-btn:hover {
-    background: rgba(40, 167, 69, 1);
-}
-
-#task-input {
-    width: calc(100% - 110px);
-    padding: 8px;
-    margin-right: 10px;
-}
-
-.task-input-container {
-    display: flex;
-    align-items: center;
-    margin-top: 10px;
-}
-
-/* Sub-tasks */
-.sub-tasks-habit {
-    margin-top: 10px;
-}
-
-.sub-task-item {
-    display: flex;
-    align-items: center;
-    margin-bottom: 8px;
-}
-
-.sub-task-item input[type="checkbox"] {
-    margin-right: 8px;
-    width: 18px;
-    height: 18px;
-}
-
-.sub-task-item label {
-    cursor: pointer;
-    flex-grow: 1;
-    word-break: break-word;
-}
-
-/* Lock button */
-.lock-btn {
-    position: absolute;
-    top: 3px; /* Reduced for smaller cards */
-    right: 3px; /* Reduced for smaller cards */
-    background: none;
-    border: none;
-    color: rgba(255, 255, 255, 0.5);
-    cursor: pointer;
-    font-size: 0.7rem; /* Reduced for smaller cards */
-    padding: 1px; /* Reduced padding */
-    border-radius: 2px; /* Smaller radius */
-    z-index: 10;
-}
-
-.lock-btn:hover {
-    color: gold;
-    background: rgba(255, 255, 255, 0.1);
-}
-
-.calendar-day.locked .lock-btn {
-    color: gold;
-}
-
-/* Locked day visual overlay */
-.calendar-day.locked {
-    position: relative;
-}
-
-.calendar-day.locked::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: repeating-linear-gradient(
-        45deg,
-        rgba(0, 0, 0, 0.4) 0px,
-        rgba(0, 0, 0, 0.4) 2px,
-        transparent 2px,
-        transparent 4px
-    );
-    border-radius: 8px;
-    z-index: 1;
-    pointer-events: none;
-}
-
-.calendar-day.locked .day-number,
-.calendar-day.locked .progress-indicator,
-.calendar-day.locked .progress-percent {
-    position: relative;
-    z-index: 2;
-    opacity: 0.8;
-}
-
-.calendar-day.locked .lock-btn {
-    position: relative;
-    z-index: 3;
-    color: #ffd700 !important;
-}
-
-/* Locked day indicator */
-.locked-day-indicator {
-    background-color: rgba(255, 215, 0, 0.2);
-    border: 1px dashed gold;
-    padding: 10px;
-    border-radius: 8px;
-    margin-bottom: 15px;
-    text-align: center;
-    font-weight: bold;
-    color: gold;
-}
-
-.locked-day-indicator .unlock-btn {
-    background: rgba(255, 215, 0, 0.3);
-    color: white;
-    border: 1px solid gold;
-    padding: 5px 10px;
-    border-radius: 5px;
-    cursor: pointer;
-    margin-left: 10px;
-    transition: background 0.3s ease;
-}
-
-.locked-day-indicator .unlock-btn:hover {
-    background: rgb(255, 224, 50);
-}
-
-/* Statistics Tab Styles */
-.statistics-container {
-    max-width: 1000px;
-    margin: 0 auto;
-    padding: 15px; /* Reduced from 20px */
-    display: flex;
-    flex-direction: column;
-    min-height: 0;
-}
-
-/* Statistics unified container for proper layout */
-.statistics-unified-container {
-    display: flex;
-    flex-direction: column;
-    flex: 1;
-    min-height: 0;
-    gap: 20px;
-}
-
-.statistics-header {
-    text-align: center;
-    margin-bottom: 20px; /* Reduced from 30px */
-}
-
-.statistics-header h2 {
-    font-size: 2.2rem; /* Increased for better hierarchy */
-    background: linear-gradient(45deg, #4facfe, #00f2fe);
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-    margin-bottom: 8px; /* Reduced margin */
-    font-weight: 800; /* Increased from 700 for thicker text */
-    letter-spacing: -0.3px; /* Tighter letter spacing */
-}
-
-.stats-date-range {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px; /* Reduced from 15px */
-    margin-top: 10px; /* Reduced from 15px */
-    flex-wrap: wrap; /* Allow wrapping for better vertical use */
-}
-
-.stats-date-range button {
-    background: rgba(79, 172, 254, 0.2);
-    border: 1px solid rgba(79, 172, 254, 0.5);
-    color: white;
-    padding: 6px 10px; /* Reduced horizontal padding */
-    border-radius: 20px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    font-size: 0.85rem; /* Reduced from 0.9rem */
-}
-
-.stats-date-range button:hover {
-    background: rgba(79, 172, 254, 0.4);
-    transform: translateY(-2px);
-}
-
-#stats-week-range {
-    font-size: 1rem; /* Reduced from 1.1rem */
-    font-weight: bold;
-    color: #4facfe;
-    min-width: 140px; /* Reduced from 180px */
-    text-align: center;
-}
-
-.stats-overview {
-    display: grid;
-    grid-template-columns: 1fr; /* Changed to single column for more vertical layout */
-    gap: 12px; /* Reduced gap */
-    margin-bottom: 0; /* Removed bottom margin since it's now in a flex container */
-}
-
-/* New layout for statistics top section */
-.stats-top-section {
-    display: flex;
-    gap: 25px;
-    margin-bottom: 20px;
-    align-items: stretch;
-    height: 340px;
-    flex-shrink: 0;
-}
-
-.stats-overview {
-    flex: 1;
-    margin-bottom: 0;
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: 1fr 1fr 1fr;
-    gap: 15px;
-}
-
-.chart-container {
-    flex: 2;
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: 10px; /* Reduced for consistency */
-    padding: 16px; /* Optimized padding */
-    margin-bottom: 0;
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Added subtle shadow */
-    width: 100%; /* Ensure full width usage */
-    max-width: 100%; /* Prevent overflow */
-    display: flex;
-    flex-direction: column;
-}
-
-/* Compact calendar for statistics page */
-.stats-calendar-container {
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: 12px;
-    padding: 16px;
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    width: 280px;
-    flex-shrink: 0;
-}
-
-.stats-calendar-header {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-bottom: 12px;
-}
-
-.stats-calendar-header h3 {
-    color: #4facfe;
-    font-size: 1rem;
-    font-weight: 700;
-    margin-bottom: 8px;
-    text-align: center;
-    letter-spacing: 0.3px;
-}
-
-.calendar-nav {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-}
-
-.calendar-nav button {
-    background: rgba(79, 172, 254, 0.2);
-    border: 1px solid rgba(79, 172, 254, 0.5);
-    color: white;
-    width: 28px;
-    height: 28px;
-    border-radius: 50%;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    font-size: 0.9rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.calendar-nav button:hover {
-    background: rgba(79, 172, 254, 0.4);
-    transform: scale(1.1);
-}
-
-.calendar-month-display {
-    font-size: 0.85rem;
-    font-weight: 600;
-    color: #ffffff;
-    min-width: 80px;
-    text-align: center;
-}
-
-.stats-calendar {
-    display: grid;
-    grid-template-columns: repeat(7, 1fr);
-    gap: 3px;
-}
-
-.stats-calendar .calendar-header {
-    font-size: 0.7rem;
-    font-weight: 600;
-    color: rgba(255, 255, 255, 0.7);
-    text-align: center;
-    padding: 4px 2px;
-    margin-bottom: 4px;
-}
-
-.stats-calendar .calendar-day {
-    aspect-ratio: 1;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 0.75rem;
-    color: #ffffff;
-    border-radius: 6px;
-    cursor: pointer;
-    transition: all 0.2s ease;
-    position: relative;
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.stats-calendar .calendar-day:hover {
-    background: rgba(79, 172, 254, 0.3);
-    transform: scale(1.1);
-}
-
-.stats-calendar .calendar-day.other-month {
-    color: rgba(255, 255, 255, 0.3);
-    background: rgba(255, 255, 255, 0.02);
-}
-
-.stats-calendar .calendar-day.today {
-    background: linear-gradient(45deg, #4facfe, #00f2fe);
-    color: #000;
-    font-weight: 700;
-    box-shadow: 0 0 10px rgba(79, 172, 254, 0.5);
-}
-
-.stats-calendar .calendar-day.has-progress::after {
-    content: '';
-    position: absolute;
-    bottom: 2px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 4px;
-    height: 4px;
-    background: #4facfe;
-    border-radius: 50%;
-}
-
-.chart-container h3 {
-    color: #4facfe;
-    margin-bottom: 12px; /* Optimized margin */
-    font-size: 1.15rem; /* Slightly reduced */
-    font-weight: 700; /* Increased from 600 for bolder text */
-    text-align: center;
-    letter-spacing: 0.3px; /* Added for crisp text */
-}
-
-.chart-wrapper {
-    position: relative;
-    width: 100%;
-    flex: 1;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden; /* Hide overflow for smooth fading effect */
-}
-
-.habit-breakdown {
-    background: rgba(255, 255, 255, 0.05);
-    border-radius: 16px;
-    padding: 16px 18px; /* Reduced from 20px for more compact feel */
-    backdrop-filter: blur(15px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
-    position: relative;
-    overflow: hidden;
-    max-width: 100%; /* Prevent excessive width */
-    margin-bottom: 20px; /* Add bottom margin for proper spacing */
-    flex: 1;
-    min-height: 0;
-    display: flex;
-    flex-direction: column;
-}
-
-/* Compact calendar for statistics page */
-.stats-calendar-container {
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: 12px;
-    padding: 16px;
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    width: 280px;
-    flex-shrink: 0;
-}
-
-.stats-calendar-header {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-bottom: 12px;
-}
-
-.stats-calendar-header h3 {
-    color: #4facfe;
-    font-size: 1rem;
-    font-weight: 700;
-    margin-bottom: 8px;
-    text-align: center;
-    letter-spacing: 0.3px;
-}
-
-.calendar-nav {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-}
-
-.calendar-nav button {
-    background: rgba(79, 172, 254, 0.2);
-    border: 1px solid rgba(79, 172, 254, 0.5);
-    color: white;
-    width: 28px;
-    height: 28px;
-    border-radius: 50%;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    font-size: 0.9rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.calendar-nav button:hover {
-    background: rgba(79, 172, 254, 0.4);
-    transform: scale(1.1);
-}
-
-.calendar-month-display {
-    font-size: 0.85rem;
-    font-weight: 600;
-    color: #ffffff;
-    min-width: 80px;
-    text-align: center;
-}
-
-.stats-calendar {
-    display: grid;
-    grid-template-columns: repeat(7, 1fr);
-    gap: 3px;
-}
-
-.stats-calendar .calendar-header {
-    font-size: 0.7rem;
-    font-weight: 600;
-    color: rgba(255, 255, 255, 0.7);
-    text-align: center;
-    padding: 4px 2px;
-    margin-bottom: 4px;
-}
-
-.stats-calendar .calendar-day {
-    aspect-ratio: 1;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 0.75rem;
-    color: #ffffff;
-    border-radius: 6px;
-    cursor: pointer;
-    transition: all 0.2s ease;
-    position: relative;
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.stats-calendar .calendar-day:hover {
-    background: rgba(79, 172, 254, 0.3);
-    transform: scale(1.1);
-}
-
-.stats-calendar .calendar-day.other-month {
-    color: rgba(255, 255, 255, 0.3);
-    background: rgba(255, 255, 255, 0.02);
-}
-
-.stats-calendar .calendar-day.today {
-    background: linear-gradient(45deg, #4facfe, #00f2fe);
-    color: #000;
-    font-weight: 700;
-    box-shadow: 0 0 10px rgba(79, 172, 254, 0.5);
-}
-
-.stats-calendar .calendar-day.has-progress::after {
-    content: '';
-    position: absolute;
-    bottom: 2px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 4px;
-    height: 4px;
-    background: #4facfe;
-    border-radius: 50%;
-}
-
+/* Statistics */
 .stat-card {
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: 10px; /* Reduced for modern crisp look */
-    padding: 12px 16px; /* Reduced from 14px for more compact feel */
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    transition: all 0.3s ease;
-    display: flex;
-    align-items: center;
-    gap: 8px; /* Reduced from 10px */
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Added subtle shadow */
-    justify-content: flex-start; /* Better alignment for vertical layout */
-    height: 100%; /* Fill all available grid space */
-    max-width: 300px; /* Added to prevent excessive width */
-}
-
-.stat-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
-}
-
-.streak-card {
-    border-left: 6px solid #ff6b35;
-}
-
-.completion-card {
-    border-left: 6px solid #4facfe;
-}
-
-.best-day-card {
-    border-left: 6px solid #ffd700;
+    background: #1e293b; /* Slate 800 */
+    border: 1px solid #334155; /* Slate 700 */
+    border-radius: 12px;
 }
 
 .stat-icon {
-    font-size: 1.6rem; /* Reduced from 2rem for more compact feel */
-    opacity: 0.8;
-    flex-shrink: 0;
-}
-
-.stat-content {
-    flex-grow: 1;
-    min-width: 0; /* Allow content to shrink if needed */
+    font-size: 2rem;
 }
 
 .stat-value {
-    font-size: 1.7rem; /* Reduced from 2rem for better proportion */
-    font-weight: 800; /* Increased from 700 for thicker text */
-    color: #ffffff;
-    margin-bottom: 1px; /* Reduced margin for tighter spacing */
-    font-family: 'Courier New', monospace;
-    letter-spacing: -0.5px; /* Tighter letter spacing */
-    line-height: 1; /* Reduced line height for compact layout */
+    font-size: 2.25rem;
+    font-weight: 700;
 }
 
 .stat-label {
-    font-size: 0.85rem; /* Reduced from 0.95rem */
-    font-weight: 700; /* Increased from 600 for bolder text */
-    color: #4facfe;
-    margin-bottom: 1px; /* Reduced margin for tighter spacing */
-    letter-spacing: 0.3px; /* Added for crisp text */
-    line-height: 1.1; /* Reduced line height */
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: #94a3b8; /* Slate 400 */
 }
 
-.stat-description {
-    font-size: 0.7rem; /* Reduced from 0.8rem for more compact */
-    color: rgba(255, 255, 255, 0.7);
-    line-height: 1.1; /* Reduced from 1.2 for tighter spacing */
+.chart-container {
+    background: #1e293b; /* Slate 800 */
+    border: 1px solid #334155; /* Slate 700 */
+    border-radius: 12px;
 }
 
-#progress-chart {
-    width: 100%;
-    height: 100%;
-    max-width: 100%;
-    max-height: 100%;
-    background: rgba(255, 255, 255, 0.02);
-    border-radius: 10px;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    image-rendering: -webkit-optimize-contrast;
-    image-rendering: optimize-contrast;
-    image-rendering: crisp-edges;
-    -ms-interpolation-mode: nearest-neighbor;
-}
-
-.habit-breakdown::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 3px;
-    background: linear-gradient(90deg, #4facfe, #00f2fe, #667eea, #764ba2);
-    border-radius: 16px 16px 0 0;
-}
-
-.habit-breakdown h3 {
-    color: #ffffff;
-    margin-bottom: 16px; /* Reduced from 20px for more compact feel */
-    font-size: 1.2rem; /* Slightly reduced from 1.3rem */
-    font-weight: 700;
-    text-align: center;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    background: linear-gradient(45deg, #4facfe, #00f2fe);
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-    position: relative;
-}
-
-.habit-breakdown h3::after {
-    content: '';
-    position: absolute;
-    bottom: -8px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 40px;
-    height: 2px;
-    background: linear-gradient(45deg, #4facfe, #00f2fe);
-    border-radius: 2px;
-}
-
-/* Habit stats list container with proper flex layout */
-#habit-stats-list {
-    flex: 1;
-    min-height: 0;
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
+.habit-breakdown {
+    background: #1e293b; /* Slate 800 */
+    border: 1px solid #334155; /* Slate 700 */
+    border-radius: 12px;
 }
 
 .habit-stat-item {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 12px 16px; /* Reduced from 16px 18px for more compact feel */
-    margin-bottom: 8px; /* Reduced from 12px for tighter spacing */
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.04));
-    border-radius: 12px;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    transition: all 0.3s ease;
-    position: relative;
-    overflow: hidden;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-    min-height: 50px; /* Added minimum height constraint for compactness */
-    flex-wrap: wrap;
-    gap: 8px;
-}
-
-.habit-stat-item::before {
-    content: '';
-    position: absolute;
-    left: 0;
-    top: 0;
-    bottom: 0;
-    width: 4px;
-    background: var(--habit-color, linear-gradient(45deg, #4facfe, #00f2fe));
-    border-radius: 0 4px 4px 0;
-}
-
-.habit-stat-item:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0.06));
-}
-
-.habit-stat-item:last-child {
-    margin-bottom: 0;
-}
-
-.habit-stat-name {
-    font-weight: 700;
-    color: #ffffff;
-    flex-grow: 1;
-    font-size: 0.9rem; /* Reduced from 0.95rem for more compact feel */
-    letter-spacing: 0.3px;
-    margin-left: 6px; /* Reduced from 8px */
-    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
-    line-height: 1.2; /* Added for tighter spacing */
-    min-width: 0; /* Allow text to shrink if needed */
-}
-
-.habit-stat-progress {
-    display: flex;
-    align-items: center;
-    gap: 10px; /* Reduced from 12px for more compact feel */
-    flex-wrap: nowrap;
-    min-width: 210px; /* Increased to accommodate longer progress bar */
-    flex-shrink: 0; /* Prevent shrinking */
+    background: #334155; /* Slate 700 */
+    border-radius: 8px;
 }
 
 .habit-stat-bar {
-    width: 180px;
-    height: 8px;
-    background: rgba(255, 255, 255, 0.15);
-    border-radius: 6px;
-    overflow: hidden;
-    position: relative;
-    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.2);
-}
-
-.habit-stat-fill {
-    height: 100%;
-    background: linear-gradient(90deg, var(--habit-color, #4facfe), var(--habit-color-light, #00f2fe));
-    border-radius: 6px;
-    transition: all 0.4s ease;
-    position: relative;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
-}
-
-.habit-stat-fill::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 40%;
-    background: linear-gradient(180deg, rgba(255, 255, 255, 0.3), transparent);
-    border-radius: 6px 6px 0 0;
-}
-
-.habit-stat-percentage {
-    font-family: 'Courier New', monospace;
-    font-weight: 700;
-    color: var(--habit-color, #4facfe);
-    min-width: 40px;
-    text-align: right;
-    font-size: 0.85rem;
-    letter-spacing: 0.5px;
-    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
-    background: rgba(255, 255, 255, 0.05);
-    padding: 4px 8px;
-    border-radius: 8px;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-/* Habit breakdown specific control buttons */
-.habit-stat-item .habit-controls {
-    display: flex;
-    gap: 4px;
-    flex-shrink: 0;
-    margin-left: 8px;
-}
-
-.habit-stat-item .control-btn {
-    padding: 4px 8px;
-    font-size: 0.7rem;
-    border-radius: 6px;
-    font-weight: 600;
-    letter-spacing: 0.2px;
-}
-
-/* Responsive adjustments for statistics */
-@media (max-width: 768px) {
-    .stats-overview {
-        grid-template-columns: 1fr;
-        margin-bottom: 15px; /* Reduced for mobile */
-    }
-    
-    .stat-card {
-        padding: 15px; /* Reduced from 20px */
-    }
-    
-    .stat-icon {
-        font-size: 1.6rem; /* Reduced from 2rem */
-    }
-    
-    .stat-value {
-        font-size: 1.5rem; /* Reduced from 1.8rem */
-        font-weight: 800; /* Ensured bold on mobile */
-    }
-    
-    .stats-date-range {
-        flex-direction: column;
-        gap: 8px; /* Reduced from 10px */
-    }
-    
-    .habit-breakdown {
-        padding: 12px; /* Reduced for mobile */
-    }
-    
-    .habit-stat-item {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 6px; /* Reduced from 8px */
-        padding: 6px; /* Reduced for mobile */
-    }
-    
-    .habit-stat-progress {
-        width: 100%;
-        justify-content: space-between;
-    }
-    
-    /* Modal adjustments for mobile */
-    .modal-content {
-        width: 95%;
-        max-height: 85vh;
-        padding: 15px;
-    }
-    
-    .checkpoint-notification {
-        top: 10px;
-        right: 10px;
-        left: 10px;
-        max-width: none;
-        min-width: auto;
-        padding: 12px 15px;
-    }
-    
-    .checkpoint-buttons {
-        flex-direction: column;
-        gap: 8px;
-    }
-    
-    .checkpoint-continue,
-    .checkpoint-dismiss {
-        flex: none;
-        width: 100%;
-        font-weight: 700; /* Ensured bold on mobile */
-    }
-    
-    .chart-wrapper {
-        height: 260px; /* Increased from 220px for better mobile visibility */
-    }
-}
-
-/* Comprehensive Dropdown Fixes */
-/* Ensure all select elements across the app have proper styling */
-select,
-select[multiple],
-datalist {
-    background-color: #16213e !important;
-    color: #ffffff !important;
-    border: 1px solid rgba(255, 255, 255, 0.15) !important;
-}
-
-/* Force dropdown options to have dark background */
-select option,
-select optgroup,
-datalist option {
-    background-color: #16213e !important;
-    color: #ffffff !important;
-    padding: 8px 12px !important;
-}
-
-/* Handle hover states for better UX */
-select option:hover,
-select option:focus {
-    background-color: #4facfe !important;
-    color: #ffffff !important;
-}
-
-/* Webkit browsers (Chrome, Safari, Edge) */
-select::-webkit-dropdown-button {
-    background-color: #16213e !important;
-    color: #ffffff !important;
-}
-
-/* Additional safety for any remaining white-on-white issues */
-.modal select,
-.modal select option,
-.form-group select,
-.form-group select option {
-    background-color: #16213e !important;
-    color: #ffffff !important;
-}
-
-/* Ensure native dropdowns work across all browsers */
-select {
-    -webkit-appearance: menulist;
-    -moz-appearance: menulist;
-    appearance: menulist;
-}
-
-/* Custom scrollbar for dropdowns */
-select::-webkit-scrollbar {
-    width: 8px;
-}
-
-select::-webkit-scrollbar-track {
-    background: #16213e;
-}
-
-select::-webkit-scrollbar-thumb {
-    background: #4facfe;
-    border-radius: 4px;
-}
-
-select::-webkit-scrollbar-thumb:hover {
-    background: #367fd0;
-}
-
-/* Color picker grid */
-.color-picker {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(32px, 1fr)); /* Slightly reduced for tighter layout */
-    gap: 4px; /* Reduced gap for more compact layout */
-    margin-top: 10px;
-    max-width: 100%; /* Prevent excessive horizontal stretch */
-}
-
-.color-box {
-    width: 32px; /* Reduced from 36px */
-    height: 32px;
-    border-radius: 6px; /* Reduced roundness for crisp look */
-    border: 2px solid transparent;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 0.45rem; /* Reduced for better fit */
-    font-weight: 700;
-    color: #fff;
-    background-color: rgba(255, 255, 255, 0.08);
-    transition: transform 0.15s, box-shadow 0.15s, border-color 0.15s;
-    text-align: center;
-    line-height: 1;
-}
-
-.color-box:hover {
-    transform: scale(1.12);
-    box-shadow: 0 6px 14px rgba(0,0,0,0.35);
-}
-
-.color-box.selected {
-    border-color: #ffffff88;
-    box-shadow: 0 0 10px rgba(255,255,255,0.12);
-}
-
-.color-box[data-color=""] {
-    background: linear-gradient(135deg, rgba(255,255,255,0.03), rgba(255,255,255,0.06));
-    color: #eaeaea;
-    font-size: 0.5rem; /* Reduced font size to fit 'DEFAULT' text better */
-    font-weight: 700; /* Increased font weight for better visibility */
-    letter-spacing: -0.5px; /* Tighter letter spacing to fit text */
-    padding: 2px; /* Added padding for text breathing room */
-}
-
-/* Weight help text */
-.weight-help-text {
-    display: block;
-    font-size: 0.8rem;
-    color: rgba(255, 255, 255, 0.6);
-    margin-top: 4px; /* Reduced margin */
-    font-style: italic;
-    line-height: 1.2; /* Reduced line height */
-}
-
-/* Checkpoint help text */
-.checkpoint-help-text {
-    display: block;
-    font-size: 0.8rem;
-    color: rgba(255, 255, 255, 0.6);
-    margin-top: 4px; /* Reduced margin */
-    font-style: italic;
-    line-height: 1.2; /* Reduced line height */
-}
-
-/* Checkpoint markers on timer bar */
-.timer-checkpoint-marker {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    width: 2px;
-    background: rgba(255, 215, 0, 0.8);
-    z-index: 3;
-    transition: opacity 0.3s ease;
-    pointer-events: none;
-    user-select: none;
-}
-
-.timer-checkpoint-marker::before {
-    content: '';
-    position: absolute;
-    top: -3px;
-    left: -2px;
-    width: 6px;
-    height: 6px;
-    background: #ffd700;
-    border-radius: 50%;
-    box-shadow: 0 0 4px rgba(255, 215, 0, 0.6);
-}
-
-.timer-checkpoint-marker::after {
-    content: '';
-    position: absolute;
-    bottom: -3px;
-    left: -2px;
-    width: 6px;
-    height: 6px;
-    background: #ffd700;
-    border-radius: 50%;
-    box-shadow: 0 0 4px rgba(255, 215, 0, 0.6);
-}
-
-/* Checkpoint notification */
-.checkpoint-notification {
-    position: fixed;
-    top: 20px;
-    right: 20px;
-    background: linear-gradient(145deg, #1f1f3a, #16213e);
-    border: 2px solid #ffd700;
-    border-radius: 12px;
-    padding: 15px 20px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-    z-index: 2000;
-    animation: slideInRight 0.3s ease;
-    max-width: 320px;
-    min-width: 260px;
-}
-
-@keyframes slideInRight {
-    from {
-        transform: translateX(100%);
-        opacity: 0;
-    }
-    to {
-        transform: translateX(0);
-        opacity: 1;
-    }
-}
-
-.checkpoint-content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 10px;
-}
-
-.checkpoint-icon {
-    font-size: 1.5rem;
-    flex-shrink: 0;
-}
-
-.checkpoint-text {
-    color: #ffffff;
-    font-size: 1rem;
-    font-weight: 500;
-    line-height: 1.2;
-    letter-spacing: 0.3px;
-    text-align: center;
-}
-
-.checkpoint-buttons {
-    display: flex;
-    gap: 10px;
-    width: 100%;
-    justify-content: center;
-}
-
-.checkpoint-continue,
-.checkpoint-dismiss {
-    background: #ffd700;
-    color: #000;
-    border: none;
-    padding: 6px 16px;
-    border-radius: 6px;
-    font-size: 0.85rem;
-    font-weight: 600;
-    cursor: pointer;
-    transition: all 0.1s ease;
-    flex: 1;
-    min-width: 80px;
-}
-
-.checkpoint-dismiss {
-    background: rgba(108, 117, 125, 0.8);
-    color: #ffffff;
-}
-
-.checkpoint-continue:hover {
-    background: #ffed4e;
-    transform: translateY(-1px);
-    box-shadow: 0 3px 8px rgba(255, 215, 0, 0.3);
-}
-
-.checkpoint-dismiss:hover {
-    background: rgba(108, 117, 125, 1);
-    transform: translateY(-1px);
-    box-shadow: 0 3px 8px rgba(108, 117, 125, 0.3);
-}
-
-/* Custom Confirmation Modal */
-.confirmation-modal-content {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background: linear-gradient(145deg, #1f1f3a, #16213e);
-    padding: 25px;
-    border-radius: 15px;
-    border: 2px solid rgba(220, 53, 69, 0.4); /* Red border for delete confirmation */
-    width: 90%;
-    max-width: 400px;
-    min-height: 180px;
-    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.8), 0 10px 25px rgba(0, 0, 0, 0.5); /* Enhanced shadow for floating effect */
-    animation: confirmationFloat 0.3s ease;
-    box-sizing: border-box;
-    pointer-events: all; /* Enable interactions */
-}
-
-@keyframes confirmationFloat {
-    from {
-        opacity: 0;
-        transform: translate(-50%, -60%) scale(0.9);
-        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-    }
-    to {
-        opacity: 1;
-        transform: translate(-50%, -50%) scale(1);
-        box-shadow: 0 25px 60px rgba(0, 0, 0, 0.8), 0 10px 25px rgba(0, 0, 0, 0.5);
-    }
-}
-
-.confirmation-header {
-    margin-bottom: 15px;
-    text-align: center;
-}
-
-.confirmation-header h3 {
-    color: #ff6b6b;
-    font-size: 1.3rem;
-    margin: 0;
-}
-
-.confirmation-body {
-    margin-bottom: 25px;
-    text-align: center;
-}
-
-.confirmation-body p {
-    color: rgba(255, 255, 255, 0.9);
-    font-size: 1rem;
-    line-height: 1.4;
-    margin: 0;
-}
-
-.confirmation-buttons {
-    display: flex;
-    gap: 15px;
-    justify-content: center;
-}
-
-.confirmation-btn {
-    padding: 10px 25px;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    font-size: 1rem;
-    font-weight: 600;
-    transition: all 0.15s ease;
-    min-width: 90px;
-}
-
-.confirmation-btn.cancel-btn {
-    background: rgba(108, 117, 125, 0.8);
-    color: white;
-}
-
-.confirmation-btn.delete-btn {
-    background: rgba(220, 53, 69, 0.8);
-    color: white;
-}
-
-.confirmation-btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-}
-
-.confirmation-btn.cancel-btn:hover {
-    background: rgba(108, 117, 125, 1);
-}
-
-.confirmation-btn.delete-btn:hover {
-    background: rgba(220, 53, 69, 1);
-}
-
-/* Responsive */
-@media (max-width: 768px) {
-    .container {
-        padding: 20px; /* Increased from 10px for better mobile spacing */
-        max-width: 100%; /* Full width on mobile for better vertical use */
-    }
-    
-    body {
-        padding: 20px; /* Increased from 10px for better mobile spacing */
-    }
-    
-    .stats-overview {
-        grid-template-columns: 1fr; /* Single column maintained on mobile */
-        gap: 8px; /* Further reduced for mobile */
-        margin-bottom: 15px; /* Reduced for mobile */
-    }
-    
-    .stats-top-section {
-        flex-direction: column;
-        gap: 15px;
-        height: auto; /* Remove fixed height on mobile */
-    }
-    
-    .stats-calendar-container {
-        width: 100%;
-        padding: 12px;
-    }
-    
-    .stats-calendar-header h3 {
-        font-size: 0.9rem;
-    }
-    
-    .calendar-nav button {
-        width: 24px;
-        height: 24px;
-        font-size: 0.8rem;
-    }
-    
-    .calendar-month-display {
-        font-size: 0.8rem;
-        min-width: 70px;
-    }
-    
-    .stats-calendar {
-        gap: 2px;
-    }
-    
-    .stats-calendar .calendar-header {
-        font-size: 0.65rem;
-        padding: 3px 1px;
-    }
-    
-    .stats-calendar .calendar-day {
-        font-size: 0.7rem;
-        border-radius: 4px;
-    }
-    
-    .stat-card {
-        padding: 10px 14px; /* Further reduced for mobile */
-        flex-direction: row; /* Keep horizontal on mobile for better space use */
-        min-height: 55px; /* Reduced mobile height */
-        max-width: none; /* Remove width constraint on mobile */
-    }
-    
-    .stat-icon {
-        font-size: 1.4rem; /* Further reduced for mobile */
-    }
-    
-    .stat-value {
-        font-size: 1.4rem; /* Reduced for mobile */
-        font-weight: 800; /* Ensured bold on mobile */
-    }
-    
-    .stat-label {
-        font-size: 0.8rem; /* Reduced for mobile */
-    }
-    
-    .stat-description {
-        font-size: 0.65rem; /* Further reduced for mobile */
-        line-height: 1; /* Tighter line height for mobile */
-    }
-    
-    .calendar {
-        grid-template-columns: repeat(7, 1fr);
-        column-gap: 3px; /* Reduced horizontal spacing for mobile */
-        row-gap: 8px; /* Increased vertical spacing for better mobile separation */
-        aspect-ratio: 7/6;
-    }
-    
-    /* Mobile modal positioning improvements */
-    .modal {
-        padding: 15px; /* Reduced padding for mobile */
-        overflow-y: auto; /* Enable scrolling if needed */
-    }
-    
-    .modal-content {
-        width: 95%;
-        max-width: 420px; /* Reduced from 480px for mobile */
-        padding: 18px; /* Slightly increased from 15px for better touch targets */
-        max-height: 80vh; /* Consistent with desktop for better positioning */
-        margin: 10vh auto; /* Added margin to prevent edge placement */
-        position: relative; /* Changed from absolute for better mobile positioning */
-        top: auto;
-        left: auto;
-        transform: none;
-        min-height: 200px; /* Added minimum height for mobile consistency */
-    }
-    
-    .confirmation-modal-content {
-        width: 95%;
-        max-width: 350px; /* Slightly smaller for mobile */
-        padding: 20px; /* Reduced padding for mobile */
-        margin: 15vh auto; /* Center with margin for mobile */
-        position: relative;
-        top: auto;
-        left: auto;
-        transform: none;
-        min-height: 160px; /* Added minimum height for mobile */
-    }
-    
-    .nav-tabs {
-        flex-wrap: wrap;
-        gap: 4px; /* Further reduced mobile gap */
-    }
-    
-    .tab-btn {
-        padding: 8px 12px; /* Reduced mobile padding */
-    }
-    
-    .date-nav button {
-        padding: 6px 8px; /* Reduced mobile button padding */
-        font-size: 0.8rem; /* Reduced font size */
-    }
-    
-    .current-date {
-        min-width: 120px; /* Further reduced for mobile */
-    }
-    
-    .timer-habit {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 6px; /* Reduced gap */
-    }
-    
-    .enhanced-slider-container {
-        flex-direction: column;
-        align-items: stretch;
-        gap: 6px;
-    }
-    
-    .timer-display {
-        margin-bottom: 8px; /* Reduced margin */
-    }
-    
-    .timer-btn {
-        margin-bottom: 3px; /* Reduced margin */
-    }
-    
-    .color-picker {
-        grid-template-columns: repeat(auto-fill, minmax(28px, 1fr)); /* Further reduced on mobile */
-        gap: 3px; /* Tighter gap on mobile */
-    }
-    
-    .color-box {
-        width: 28px;
-        height: 28px;
-        font-size: 0.4rem; /* Adjusted for smaller mobile boxes */
-    }
-    
-    .color-box[data-color=""] {
-        font-size: 0.35rem; /* Adjusted for mobile DEFAULT text */
-    }
-    
-    .habit-card {
-        padding: 20px; /* Increased from 15px for better mobile spacing */
-        margin-bottom: 15px; /* Increased from 12px for better mobile separation */
-    }
-    
-    .form-group {
-        margin-bottom: 12px; /* Reduced mobile form spacing */
-    }
-    
-    .habit-header {
-        margin-bottom: 8px; /* Reduced mobile header margin */
-        flex-direction: column; /* Stack vertically on mobile */
-        align-items: flex-start;
-    }
-    
-    .habit-controls {
-        align-self: flex-end; /* Align to right when stacked */
-        margin-top: 5px;
-    }
-    
-    .chart-wrapper {
-        height: 260px; /* Increased from 220px for better mobile visibility */
-    }
-    
-    .habit-breakdown {
-        padding: 14px 16px; /* Further reduced for mobile */
-        border-radius: 12px;
-    }
-    
-    .habit-breakdown h3 {
-        font-size: 1.05rem; /* Further reduced for mobile */
-        margin-bottom: 14px; /* Reduced for mobile */
-    }
-    
-    .habit-stat-item {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 8px; /* Reduced from 10px */
-        padding: 10px 14px; /* Further reduced for mobile */
-        margin-bottom: 6px; /* Further reduced for mobile */
-        min-height: 45px; /* Reduced mobile height */
-    }
-    
-    .habit-stat-item .habit-controls {
-        width: 100%;
-        justify-content: flex-end;
-        margin-left: 0;
-        margin-top: 4px;
-    }
-    
-    .habit-stat-name {
-        margin-left: 3px; /* Further reduced for mobile */
-        font-size: 0.85rem; /* Further reduced for mobile */
-        width: 100%;
-        line-height: 1.1; /* Tighter line height for mobile */
-    }
-    
-    .habit-stat-progress {
-        width: 100%;
-        justify-content: space-between;
-        min-width: auto;
-    }
-    
-    .habit-stat-bar {
-        flex-grow: 1;
-        width: auto;
-        min-width: 150px;
-        height: 12px; /* Increased from 10px to match desktop thickness */
-    }
-    
-    .habit-stat-percentage {
-        min-width: 45px;
-        font-size: 0.8rem;
-        padding: 6px 10px;
-    }
-    
-    .checkpoint-continue,
-    .checkpoint-dismiss {
-        flex: none;
-        width: 100%;
-        font-weight: 700; /* Ensured bold on mobile */
-    }
+    background: #475569; /* Slate 600 */
 }
